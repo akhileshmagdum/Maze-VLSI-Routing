@@ -3,7 +3,7 @@ maze = [] #The final grid with all layers
 
 #Taking input as per number of layers
 for i in range(layer):
-    lay = list(map(int,input(f"Enter layer {i}:").split()))
+    lay = list(map(int,input(f"Enter layer {i+1}:").split()))
     maze.append(lay)
 
 #Getting source and target
@@ -51,29 +51,29 @@ while empty[target[0]][target[1]] == 0:
 
 i, j = target
 k = empty[i][j]
-path = [(i,j)]
+revpath = [(i,j)] #Target to Source Path (Back tracked)
 
 while k > 1:
   
   if i > 0 and empty[i - 1][j] == k-1:
     i, j = i-1, j
-    path.append((i, j))
+    revpath.append((i, j))
     k-=1
   
   elif j > 0 and empty[i][j - 1] == k-1:
     i, j = i, j-1
-    path.append((i, j))
+    revpath.append((i, j))
     k-=1
   
   elif i < len(empty) - 1 and empty[i + 1][j] == k-1:
     i, j = i+1, j
-    path.append((i, j))
+    revpath.append((i, j))
     k-=1
   
   elif j < len(empty[i]) - 1 and empty[i][j + 1] == k-1:
     i, j = i, j+1
-    path.append((i, j))
+    revpath.append((i, j))
     k -= 1
 
-
+path = revpath[::-1] #Source to Target path 
 print(path)
