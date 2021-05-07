@@ -1,4 +1,14 @@
-layer = int(input("Enter the no. layers:")) #Layers of the grid
+layer = input("Enter the no. layers: ") #Layers of the grid
+
+#Error Handling for layer Input
+while True:
+    try:
+        layer = input("Enter a number: ")
+        layer = int(layer)
+        break
+    except ValueError:
+        print("Invalid Input!")
+
 maze = [] #The final grid with all layers
 
 #Taking input as per number of layers
