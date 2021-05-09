@@ -3,7 +3,7 @@ This project is an attempt towards improvement on current Lee's Algorthim for pa
 
 ## Maze Structure
 * Number <mark>1</mark>: Blocked path due to components.
-* Number <mark>2</mark>: Free path for track.
+* Number <mark>0</mark>: Free path for track.
 
 ### Input format for Testing of code
 ```
